@@ -20,7 +20,7 @@ const Router = () => {
       <Stack.Screen
         name="Register"
         component={Register}
-        options={{headerShown: false}}
+        options={{title: 'Daftar Akun'}}
       />
       <Stack.Screen
         name="Login"
