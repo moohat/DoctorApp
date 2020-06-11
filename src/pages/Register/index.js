@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Input, Gap, Button, Header} from '../../components';
-import { colors } from '../../utils';
+import {StyleSheet, View} from 'react-native';
+import {Button, Gap, Header, Input} from '../../components';
+import {colors} from '../../utils';
 
-const Register = () => {
+const Register = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header title="Daftar Akun" />
+      <Header title="Daftar Akun" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <Input label="Full Name" />
         <Gap height={24} />
@@ -25,13 +25,12 @@ const Register = () => {
 export default Register;
 
 const styles = StyleSheet.create({
-  page:{
-    backgroundColor: colors.white, flex: 1,
+  page: {
+    backgroundColor: colors.white,
+    flex: 1,
   },
   content: {
     padding: 40,
     paddingTop: 0,
-    // justifyContent: 'space-between',
-    // flex: 1,
   },
 });

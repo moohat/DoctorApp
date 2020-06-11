@@ -2,8 +2,12 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../../utils';
+import IconOnly from './IconOnly';
 
-const Button = ({type, title, onPress}) => {
+const Button = ({type, title, balikPress, icon, onPress}) => {
+  if (type === 'icon-only') {
+    return <IconOnly icon={icon} onPress={balikPress} />;
+  }
   return (
     <TouchableOpacity style={styles.container(type)} onPress={onPress}>
       <Text style={styles.text(type)}>{title}</Text>
