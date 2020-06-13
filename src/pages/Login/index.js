@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ILLogo} from '../../assets';
 import {Input, Link, Button, Gap} from '../../components';
-import { colors } from '../../utils';
+import {colors, fonts} from '../../utils';
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <View style={styles.page}>
       <ILLogo />
@@ -15,9 +15,14 @@ const Login = () => {
       <Gap height={10} />
       <Link title="Forgot My Password" />
       <Gap height={40} />
-      <Button title="Sign In" />
+      <Button title="Sign In" onPress={() => navigation.replace('MainApp')} />
       <Gap height={30} />
-      <Link title="Create New Account" size={16} align="center" />
+      <Link
+        title="Create New Account"
+        size={16}
+        align="center"
+        onPress={() => navigation.navigate('Register')}
+      />
     </View>
   );
 };
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
     marginTop: 40,
     marginBottom: 40,
-    fontFamily: 'Nunito-SemiBold',
+    fontFamily: fonts.primary[600],
     maxWidth: 153,
-  }
+  },
 });
