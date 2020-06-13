@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 // import {Image} from 'react-native-svg';
 import {DummyUser} from '../../../assets';
+import { fonts, colors } from '../../../utils';
 
 const HomeProfile = () => {
   return (
@@ -9,7 +10,7 @@ const HomeProfile = () => {
       <Image source={DummyUser} style={styles.avatar} />
       <View>
         <Text style={styles.name}>M. Taufik Hidayat</Text>
-        <Text>Mobile Developer</Text>
+        <Text style={styles.profession}>Mobile Developer</Text>
       </View>
     </View>
   );
@@ -28,6 +29,12 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   name: {
-
+    fontSize: 16,
+    fontFamily: fonts.primary[600],
+  },
+  profession: {
+    fontSize: 12,
+    fontFamily: fonts.primary.normal,
+    color: colors.text.secondary,
   }
 });
