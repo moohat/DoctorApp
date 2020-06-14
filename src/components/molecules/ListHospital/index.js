@@ -3,14 +3,14 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import {colors, fonts} from '../../../utils';
 import {DummyHospital1} from '../../../assets';
 
-const ListHospital = () => {
+const ListHospital = ({type, name, address, pic}) => {
   return (
     <View style={styles.container}>
-      <Image source={DummyHospital1} style={styles.image} />
+      <Image source={pic} style={styles.image} />
       <View>
-        <Text style={styles.text}>Rumah Sakit</Text>
-        <Text style={styles.text}>Citra Bunga Merdeka</Text>
-        <Text style={styles.desc}>Jln. Surya Sejahtera 20</Text>
+        <Text style={styles.text}>{type}</Text>
+        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.address}>{address}</Text>
       </View>
     </View>
   );
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary[400],
     color: colors.text.primary,
   },
-  desc: {
+  address: {
     fontSize: 12,
     fontFamily: fonts.primary[300],
     color: colors.text.secondary,
