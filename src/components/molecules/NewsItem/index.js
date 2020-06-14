@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     borderBottomColor: colors.border,
     paddingHorizontal: 16,
-
   },
   titleWrapper: {
     flex: 1,
@@ -37,7 +36,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary[600],
     maxWidth: '90%',
     color: colors.text.primary,
-    // borderWidth: 1,
   },
   dateTime: {
     fontSize: 12,
