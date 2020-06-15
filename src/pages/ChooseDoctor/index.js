@@ -5,26 +5,6 @@ import {DummyDoctor4, DummyDoctor5, DummyDoctor6} from '../../assets';
 import {colors} from '../../utils';
 
 const ChooseDoctor = ({navigation}) => {
-  const [doctors] = useState([
-    {
-      id: 1,
-      profile: DummyDoctor4,
-      name: 'Alexander Jannie',
-      desc: 'Wanita',
-    },
-    {
-      id: 2,
-      profile: DummyDoctor5,
-      name: 'Nairobi Putri Hayza',
-      desc: 'Oh tentu saja tidak karena jeruk it...',
-    },
-    {
-      id: 3,
-      profile: DummyDoctor6,
-      name: 'John McParker Steve',
-      desc: 'Oke menurut pak dokter bagaimana unt...',
-    },
-  ]);
   return (
     <View style={styles.page}>
       <Header
@@ -38,6 +18,7 @@ const ChooseDoctor = ({navigation}) => {
         profile={DummyDoctor4}
         name="Alexander Jannie"
         desc="Wanita"
+        onPress={() => navigation.navigate('Chatting')}
       />
       <ListDoctor
         type="next"
