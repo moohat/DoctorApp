@@ -17,6 +17,8 @@ const Hospitals = () => {
         <Text style={styles.desc}>3 tersedia</Text>
       </ImageBackground>
       <View style={styles.content}>
+    {/* menggunakan inline dummy data */}
+
         <ListHospital
           type="Rumah Sakit"
           name="Citra Bunga Merdeka"

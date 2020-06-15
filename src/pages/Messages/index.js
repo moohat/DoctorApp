@@ -4,6 +4,7 @@ import {DummyDoctor4, DummyDoctor5, DummyDoctor6} from '../../assets';
 import {fonts, colors} from '../../utils';
 import {ListDoctor} from '../../components';
 const Messages = () => {
+  //menggunakan state dummy data
   const [doctors] = useState([
     {
       id: 1,
