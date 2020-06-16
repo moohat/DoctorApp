@@ -12,12 +12,14 @@ const Chatting = ({navigation}) => {
         title="Nairobi Putri Hayza"
         onPress={() => navigation.goBack()}
       />
-      <Text style={styles.chatDate}>Senin, 21 Maret, 2020</Text>
-      <ChatItem />
-      <ChatItem />
-      <ChatItem />
+      <View style={styles.content}>
+        <Text style={styles.chatDate}>Senin, 21 Maret, 2020</Text>
+        <ChatItem isMe />
+        <ChatItem />
+        <ChatItem isMe />
+      </View>
+
       <ChatInput />
-      
     </View>
   );
 };
@@ -26,14 +28,17 @@ export default Chatting;
 
 const styles = StyleSheet.create({
   page: {
+    flex: 1,
     backgroundColor: colors.white,
-    // flex: 1,
+  },
+  content: {
+    flex: 1,
   },
   chatDate: {
-      fontSize: 11,
-      fontFamily: fonts.primary.normal,
-      color: colors.text.secondary,
-      marginVertical: 20,
-      textAlign: 'center'
-  }
+    fontSize: 11,
+    fontFamily: fonts.primary.normal,
+    color: colors.text.secondary,
+    marginVertical: 20,
+    textAlign: 'center',
+  },
 });

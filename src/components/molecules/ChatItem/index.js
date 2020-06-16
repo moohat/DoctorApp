@@ -1,14 +1,13 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import ChatIsMe from './ChatIsMe';
+import ChatOther from './ChatOther';
 
-const ChatItem = () => {
-    return (
-        <View>
-            <Text>Chat Item page</Text>
-        </View>
-    )
-}
+const ChatItem = ({isMe}) => {
+  if (isMe) {
+    return <ChatIsMe />;
+  }
+  return <ChatOther />;
+};
 
 export default ChatItem;
 
-const styles = StyleSheet.create({})

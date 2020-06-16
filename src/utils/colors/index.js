@@ -2,9 +2,11 @@
 const mainColors = {
   green1: '#0BCAD4',
   green2: '#EDFCFD',
+  green3: '#EDEEF0',
   dark1: '#112340',
   dark2: '#495A75',
   dark3: '#8092AF',
+  blue1: '#0066CB',
   grey1: '#7D8797',
   grey2: '#E9E9E9',
 };
@@ -14,6 +16,8 @@ export const colors = {
   secondary: mainColors.dark1,
   white: 'white',
   black: 'black',
+  disable: mainColors.green3,
+  enable: mainColors.blue1,
   text: {
     primary: mainColors.dark1,
     secondary: mainColors.grey1,
