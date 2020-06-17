@@ -3,16 +3,17 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 // import {Image} from 'react-native-svg';
 import {DummyUser} from '../../../assets';
 import { fonts, colors } from '../../../utils';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const HomeProfile = () => {
+const HomeProfile = ({onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={DummyUser} style={styles.avatar} />
       <View>
         <Text style={styles.name}>M. Taufik Hidayat</Text>
         <Text style={styles.profession}>Mobile Developer</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

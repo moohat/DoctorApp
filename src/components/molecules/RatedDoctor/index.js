@@ -1,24 +1,25 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
-import {DummyDoctor1, IconStar} from '../../../assets';
+import { IconStar} from '../../../assets';
 import {fonts, colors} from '../../../utils';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const RatedDoctor = () => {
+const RatedDoctor = ({name, desc, avatar, onPress}) => {
   return (
-    <View style={styles.container}>
-      <Image source={DummyDoctor1} style={styles.avatar} />
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Image source={avatar} style={styles.avatar} />
       <View style={styles.profile}>
-      <Text style={styles.name}>Alexa Rachel</Text>
-      <Text style={styles.profession}>Pediatrician</Text>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.profession}>{desc}</Text>
       </View>
       <View style={styles.rate}>
-         <IconStar />
-         <IconStar />
-         <IconStar />
-         <IconStar />
-         <IconStar />
+        <IconStar />
+        <IconStar />
+        <IconStar />
+        <IconStar />
+        <IconStar />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -28,6 +29,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingBottom: 16,
+    alignItems: 'center',
   },
   avatar: {
     width: 50,
@@ -49,6 +52,6 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   rate: {
-      flexDirection: 'row',
-  }
+    flexDirection: 'row',
+  },
 });

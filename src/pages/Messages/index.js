@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {DummyDoctor4, DummyDoctor5, DummyDoctor6} from '../../assets';
 import {fonts, colors} from '../../utils';
-import {ListDoctor} from '../../components';
+import {List} from '../../components';
 const Messages = () => {
   //menggunakan state dummy data
   const [doctors] = useState([
@@ -31,7 +31,7 @@ const Messages = () => {
         <Text style={styles.title}>Messages</Text>
         {doctors.map(doctor => {
           return (
-            <ListDoctor
+            <List
               key={doctor.id}
               profile={doctor.profile}
               name={doctor.name}
