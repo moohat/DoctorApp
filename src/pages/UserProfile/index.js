@@ -13,6 +13,7 @@ const UserProfile = ({navigation}) => {
         name="M. Taufik Hidayat"
         desc="Mobile Apps Developer"
         avatar={DummyUser}
+        // isRemove
       />
       <Gap height={14} />
       <List

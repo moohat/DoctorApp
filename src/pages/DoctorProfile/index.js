@@ -7,21 +7,22 @@ import {colors} from '../../utils';
 const DoctorProfile = ({navigation}) => {
   return (
     <View style={styles.page}>
-        <Header title="Doctor Profile" onPress={() => navigation.goBack()} />
-        <Profile
-          name="Nairobi Putri Hayza"
-          desc="Dokter Anak"
-          avatar={DummyDoctor9}
-          isDoctor
+      <Header title="Doctor Profile" onPress={() => navigation.goBack()} />
+      <Profile
+        name="Nairobi Putri Hayza"
+        desc="Dokter Anak"
+        avatar={DummyDoctor9}
+      />
+      <Gap height={10} />
+      <ProfileItem title="Alumnus" desc="Universitas Indonesia 2020" />
+      <ProfileItem title="Tempat Praktik" desc="Rumah Sakit Umum, Bandung" />
+      <ProfileItem title="No. STR" desc="0000116622081996" />
+      <View style={styles.action}>
+        <Button
+          title="Start Consultation"
+          onPress={() => navigation.navigate('Chatting')}
         />
-        <Gap height={10} />
-        <ProfileItem title="Alumnus" desc="Universitas Indonesia 2020" />
-        <ProfileItem title="Tempat Praktik" desc="Rumah Sakit Umum, Bandung" />
-        <ProfileItem title="No. STR" desc="0000116622081996" />
-        <View style={styles.action}>
-
-      <Button title="Start Consultation" />
-        </View>
+      </View>
     </View>
   );
 };
@@ -36,5 +37,5 @@ const styles = StyleSheet.create({
   action: {
     paddingHorizontal: 40,
     paddingTop: 23,
-  }
+  },
 });

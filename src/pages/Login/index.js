@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {ILLogo} from '../../assets';
 import {Input, Link, Button, Gap} from '../../components';
 import {colors, fonts} from '../../utils';
 
 const Login = ({navigation}) => {
   return (
-    <View style={styles.page}>
+    <ScrollView style={styles.page} showsVerticalScrollIndicator={false}>
       <ILLogo />
       <Text style={styles.title}>Masuk dan mulai berkonsultasi</Text>
       <Input label="Email Address" />
@@ -23,7 +23,7 @@ const Login = ({navigation}) => {
         align="center"
         onPress={() => navigation.navigate('Register')}
       />
-    </View>
+    </ScrollView>
   );
 };
 

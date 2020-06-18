@@ -7,7 +7,10 @@ import {colors, fonts} from '../../utils';
 const UploadPhoto = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header title="Upload Photo" onPress={() => navigation.goBack()} />
+      <Header
+        title="Upload Photo"
+        onPress={() => navigation.goBack('Register')}
+      />
       <View style={styles.content}>
         <View style={styles.profile}>
           <View style={styles.wrapperAvatar}>
@@ -25,7 +28,12 @@ const UploadPhoto = ({navigation}) => {
         <View>
           <Button title="Upload and Continue" />
           <Gap height={30} />
-          <Link title="Skip for this" align="center" size={16}  />
+          <Link
+            title="Skip for this"
+            align="center"
+            size={16}
+            onPress={() => navigation.replace('MainApp')}
+          />
         </View>
       </View>
     </View>

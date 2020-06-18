@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import {DummyDoctor4, DummyDoctor5, DummyDoctor6} from '../../assets';
 import {fonts, colors} from '../../utils';
 import {List} from '../../components';
-const Messages = () => {
+const Messages = ({navigation}) => {
   //menggunakan state dummy data
   const [doctors] = useState([
     {
@@ -36,6 +36,7 @@ const Messages = () => {
               profile={doctor.profile}
               name={doctor.name}
               desc={doctor.desc}
+              onPress={() => navigation.navigate('Chatting')}
             />
           );
         })}

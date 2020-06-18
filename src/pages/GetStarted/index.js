@@ -34,7 +34,6 @@ export default GetStarted;
 const styles = StyleSheet.create({
   page: {
     padding: 40,
-    //space-between untuk mengatur jarak antar view
     justifyContent: 'space-between',
     backgroundColor: colors.white,
     flex: 1,
