@@ -21,13 +21,14 @@ const Register = ({navigation}) => {
       .createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
         setLoading(false);
+        setForm('reset');
         console.log(`Register success: ${success}`);
       })
       .catch(error => {
         // Handle Errors here.
         const errorMessage = error.message;
         setLoading(false);
-        console.log(`error register: ${errorMessage}`);
+        alert(`error register: ${errorMessage}`);
 
         // ...
       });
