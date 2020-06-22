@@ -4,6 +4,8 @@ import {Button, Gap, Header, Input, Loading} from '../../components';
 import {colors, useForm} from '../../utils';
 import {Firebase} from '../../config';
 
+import {showMessage, hideMessage} from 'react-native-flash-message';
+
 const Register = ({navigation}) => {
   const [form, setForm] = useForm({
     fullName: '',
@@ -27,8 +29,15 @@ const Register = ({navigation}) => {
       .catch(error => {
         // Handle Errors here.
         const errorMessage = error.message;
+        showMessage({
+          message: errorMessage,
+          // description: errorMessage,
+          type: 'default',
+          backgroundColor: colors.error, // background color
+          color: colors.white, // text color
+        });
         setLoading(false);
-        alert(`error register: ${errorMessage}`);
+        // alert(`error register: ${errorMessage}`);
 
         // ...
       });
