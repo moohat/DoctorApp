@@ -15,23 +15,26 @@ const UploadPhoto = ({navigation, route}) => {
   const [photo, setPhoto] = useState(ILNullPhoto);
   const getImage = () => {
     // Open Image Library:
-    ImagePicker.launchImageLibrary({}, response => {
-      // Same code as in above section!
-      console.log('response: ', response);
-      if (response.didCancel || response.error) {
-        showMessage({
-          message: 'Image belum dipilih',
-          description: 'Pilih Image yang akan diupload',
-          type: 'danger',
-        });
-      } else {
-        console.log('response getImage: ', response);
-        const sourcePhoto = {uri: response.uri};
-        setPhotoForDB(`data:${response.type};base64, ${response.data}`);
-        setPhoto(sourcePhoto);
-        sethasPhoto(true);
-      }
-    });
+    ImagePicker.launchImageLibrary(
+      {quality: 0.3, maxWidth: 200, maxHeight: 200},
+      response => {
+        // Same code as in above section!
+        console.log('response: ', response);
+        if (response.didCancel || response.error) {
+          showMessage({
+            message: 'Image belum dipilih',
+            description: 'Pilih Image yang akan diupload',
+            type: 'danger',
+          });
+        } else {
+          console.log('response getImage: ', response);
+          const sourcePhoto = {uri: response.uri};
+          setPhotoForDB(`data:${response.type};base64, ${response.data}`);
+          setPhoto(sourcePhoto);
+          sethasPhoto(true);
+        }
+      },
+    );
   };
   const uploadAndContinue = () => {
     Firebase.database()
