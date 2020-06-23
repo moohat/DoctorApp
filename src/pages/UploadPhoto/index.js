@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {Header, Button, Link, Gap} from '../../components';
 import {ILNullPhoto, IconAddPhoto, IconRemovePhoto} from '../../assets';
-import {colors, fonts} from '../../utils';
+import {colors, fonts, storeData} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 import {Firebase} from '../../config';
@@ -38,8 +38,13 @@ const UploadPhoto = ({navigation, route}) => {
   };
   const uploadAndContinue = () => {
     Firebase.database()
-      .ref('users/' + uid + '/')
+      // .ref('users/' + uid + '/')
+      .ref(`users/${uid}/`)
       .update({photo: photoForDB});
+    const data = route.params;
+    data.photo = photoForDB;
+
+    storeData('user', data);
     navigation.replace('MainApp');
   };
   return (
