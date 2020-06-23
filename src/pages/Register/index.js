@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {Button, Gap, Header, Input, Loading} from '../../components';
-import {colors, useForm} from '../../utils';
+import {colors, useForm, storeData, getData} from '../../utils';
 import {Firebase} from '../../config';
 
 import {showMessage} from 'react-native-flash-message';
@@ -18,15 +18,14 @@ const Register = ({navigation}) => {
 
   const onContinue = () => {
     console.log(form);
+
     setLoading(true);
     Firebase.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
         showMessage({
-          floating: true,
-          position: 'center',
           message: 'Pendaftaran Berhasil',
-          desc: 'Selamat Pendaftaran anda berhasil',
+          description: 'Selamat Pendaftaran anda berhasil',
           type: 'success',
         });
         setLoading(false);
@@ -40,10 +39,16 @@ const Register = ({navigation}) => {
         Firebase.database()
           .ref(`users/${success.user.uid}/`)
           .set(data);
+        getData('user').then(res => {
+          console.log('data: ', res);
+        });
+        storeData('user', data);
+        navigation.navigate('UploadPhoto');
         console.log(`Register success: ${success}`);
       })
       .catch(error => {
         // Handle Errors here.
+        setLoading(false);
         const errorMessage = error.message;
         showMessage({
           message: errorMessage,
@@ -52,12 +57,9 @@ const Register = ({navigation}) => {
           backgroundColor: colors.error, // background color
           color: colors.white, // text color
         });
-        setLoading(false);
-        // alert(`error register: ${errorMessage}`);
 
         // ...
       });
-    // navigation.navigate('UploadPhoto');
   };
 
   return (
