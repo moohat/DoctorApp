@@ -18,7 +18,6 @@ const Register = ({navigation}) => {
 
   const onContinue = () => {
     console.log(form);
-
     setLoading(true);
     Firebase.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
@@ -43,7 +42,7 @@ const Register = ({navigation}) => {
           console.log('data: ', res);
         });
         storeData('user', data);
-        navigation.navigate('UploadPhoto');
+        navigation.navigate('UploadPhoto', data);
         console.log(`Register success: ${success}`);
       })
       .catch(error => {

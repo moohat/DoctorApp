@@ -6,7 +6,10 @@ import {colors, fonts} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 
-const UploadPhoto = ({navigation}) => {
+const UploadPhoto = ({navigation, route}) => {
+  const {fullName, profession} = route.params;
+
+
   const [hasPhoto, sethasPhoto] = useState(false);
   const [photo, setPhoto] = useState(ILNullPhoto);
   const getImage = () => {
@@ -44,16 +47,16 @@ const UploadPhoto = ({navigation}) => {
             )}
           </TouchableOpacity>
           <Gap height={26} />
-          <Text style={styles.name}>M Taufik Hidayat</Text>
+          <Text style={styles.name}>{fullName}</Text>
           <Gap height={4} />
 
-          <Text style={styles.profession}>Mobile Developer</Text>
+          <Text style={styles.profession}>{profession}</Text>
         </View>
         <View>
           <Button
             disable={!hasPhoto}
             title="Upload and Continue"
-            onPress={() => navigation.navigate.replace('MainApp')}
+            onPress={() => navigation.replace('MainApp')}
           />
 
           <Gap height={30} />
