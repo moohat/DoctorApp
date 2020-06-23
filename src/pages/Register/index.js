@@ -33,6 +33,7 @@ const Register = ({navigation}) => {
           fullName: form.fullName,
           profession: form.profession,
           email: form.email,
+          uid: success.user.uid,
         };
         //save form data to database(realtime database)
         Firebase.database()
@@ -41,6 +42,7 @@ const Register = ({navigation}) => {
         getData('user').then(res => {
           console.log('data: ', res);
         });
+        //save data to localstorage
         storeData('user', data);
         navigation.navigate('UploadPhoto', data);
         console.log(`Register success: ${success}`);

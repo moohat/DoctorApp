@@ -5,10 +5,11 @@ import {ILNullPhoto, IconAddPhoto, IconRemovePhoto} from '../../assets';
 import {colors, fonts} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
+import {Firebase} from '../../config';
 
 const UploadPhoto = ({navigation, route}) => {
-  const {fullName, profession} = route.params;
-
+  const {fullName, profession, uid} = route.params;
+  const [photoForDB, setPhotoForDB] = useState('');
 
   const [hasPhoto, sethasPhoto] = useState(false);
   const [photo, setPhoto] = useState(ILNullPhoto);
@@ -24,11 +25,19 @@ const UploadPhoto = ({navigation, route}) => {
           type: 'danger',
         });
       } else {
+        console.log('response getImage: ', response);
         const sourcePhoto = {uri: response.uri};
+        setPhotoForDB(`data:${response.type};base64, ${response.data}`);
         setPhoto(sourcePhoto);
         sethasPhoto(true);
       }
     });
+  };
+  const uploadAndContinue = () => {
+    Firebase.database()
+      .ref('users/' + uid + '/')
+      .update({photo: photoForDB});
+    navigation.replace('MainApp');
   };
   return (
     <View style={styles.page}>
@@ -56,7 +65,7 @@ const UploadPhoto = ({navigation, route}) => {
           <Button
             disable={!hasPhoto}
             title="Upload and Continue"
-            onPress={() => navigation.replace('MainApp')}
+            onPress={uploadAndContinue}
           />
 
           <Gap height={30} />
