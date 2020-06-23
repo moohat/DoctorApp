@@ -22,6 +22,13 @@ const Register = ({navigation}) => {
     Firebase.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
       .then(success => {
+        showMessage({
+          floating: true,
+          position: 'center',
+          message: 'Pendaftaran Berhasil',
+          desc: 'Selamat Pendaftaran anda berhasil',
+          type: 'success',
+        });
         setLoading(false);
         setForm('reset');
         const data = {
