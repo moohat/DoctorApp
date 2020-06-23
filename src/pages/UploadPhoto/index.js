@@ -4,6 +4,7 @@ import {Header, Button, Link, Gap} from '../../components';
 import {ILNullPhoto, IconAddPhoto, IconRemovePhoto} from '../../assets';
 import {colors, fonts} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
+import {showMessage} from 'react-native-flash-message';
 
 const UploadPhoto = ({navigation}) => {
   const [hasPhoto, sethasPhoto] = useState(false);
@@ -13,9 +14,17 @@ const UploadPhoto = ({navigation}) => {
     ImagePicker.launchImageLibrary({}, response => {
       // Same code as in above section!
       console.log('response: ', response);
-      const sourcePhoto = {uri: response.uri};
-      setPhoto(sourcePhoto);
-      sethasPhoto(true);
+      if (response.didCancel || response.error) {
+        showMessage({
+          message: 'Image belum dipilih',
+          description: 'Pilih Image yang akan diupload',
+          type: 'danger',
+        });
+      } else {
+        const sourcePhoto = {uri: response.uri};
+        setPhoto(sourcePhoto);
+        sethasPhoto(true);
+      }
     });
   };
   return (

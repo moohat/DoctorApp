@@ -4,7 +4,7 @@ import {Button, Gap, Header, Input, Loading} from '../../components';
 import {colors, useForm} from '../../utils';
 import {Firebase} from '../../config';
 
-import {showMessage, hideMessage} from 'react-native-flash-message';
+import {showMessage} from 'react-native-flash-message';
 
 const Register = ({navigation}) => {
   const [form, setForm] = useForm({
